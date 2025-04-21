@@ -119,7 +119,7 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
               canDelete: true,
             },
           }, {
-            name: "short-urls",
+            name: "short_urls",
             list: "/short-urls",
             create: "/short-urls/create",
             edit: "/short-urls/edit/:id",
