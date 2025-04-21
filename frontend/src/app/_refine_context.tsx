@@ -123,7 +123,10 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
             list: "/short-urls",
             create: "/short-urls/create",
             edit: "/short-urls/edit/:id",
-            show: "/short-urls/show/:id"
+            show: "/short-urls/show/:id",
+            meta: {
+              canDelete: true,
+            },
           }]}
           options={{
             syncWithLocation: true,

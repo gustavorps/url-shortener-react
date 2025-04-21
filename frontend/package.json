@@ -1,5 +1,5 @@
 {
-  "name": "another-url-shortener",
+  "name": "another-url-shortener-frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {

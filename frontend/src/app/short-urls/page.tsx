@@ -20,6 +20,21 @@ export default function ShortUrlList() {
         header: "Name",
       },
       {
+        id: "url",
+        accessorKey: "url",
+        header: "URL",
+      },
+      {
+        id: "slug",
+        accessorKey: "slug",
+        header: "Slug",
+      },
+      {
+        id: "created_at",
+        accessorKey: "created_at",
+        header: "Created At",
+      },
+      {
         id: "actions",
         accessorKey: "id",
         header: "Actions",
@@ -95,7 +110,7 @@ export default function ShortUrlList() {
         }}
       >
         <h1>List</h1>
-        <button onClick={() => create("categories")}>Create</button>
+        <button onClick={() => create("short_urls")}>Create</button>
       </div>
       <div style={{ maxWidth: "100%", overflowY: "scroll" }}>
         <table>
