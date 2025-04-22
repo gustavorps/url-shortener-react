@@ -87,6 +87,7 @@ export default function ShortUrlList() {
   } = useTable({
     columns,
     refineCoreProps: {
+      resource: "short_urls",
       meta: {
         fields: SHORT_URLS_QUERY,
       },
