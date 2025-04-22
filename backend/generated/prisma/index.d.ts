@@ -2009,10 +2009,10 @@ export namespace Prisma {
     AND?: short_urlsWhereInput | short_urlsWhereInput[]
     OR?: short_urlsWhereInput[]
     NOT?: short_urlsWhereInput | short_urlsWhereInput[]
-    uuid?: UuidFilter<"short_urls"> | string
+    uuid?: StringFilter<"short_urls"> | string
     name?: StringNullableFilter<"short_urls"> | string | null
     url?: StringFilter<"short_urls"> | string
-    slug?: StringFilter<"short_urls"> | string
+    slug?: UuidFilter<"short_urls"> | string
     created_at?: DateTimeFilter<"short_urls"> | Date | string
     modified_at?: DateTimeFilter<"short_urls"> | Date | string
     removed_at?: DateTimeNullableFilter<"short_urls"> | Date | string | null
@@ -2031,18 +2031,18 @@ export namespace Prisma {
   }
 
   export type short_urlsWhereUniqueInput = Prisma.AtLeast<{
-    uuid?: string
     slug?: string
     AND?: short_urlsWhereInput | short_urlsWhereInput[]
     OR?: short_urlsWhereInput[]
     NOT?: short_urlsWhereInput | short_urlsWhereInput[]
+    uuid?: StringFilter<"short_urls"> | string
     name?: StringNullableFilter<"short_urls"> | string | null
     url?: StringFilter<"short_urls"> | string
     created_at?: DateTimeFilter<"short_urls"> | Date | string
     modified_at?: DateTimeFilter<"short_urls"> | Date | string
     removed_at?: DateTimeNullableFilter<"short_urls"> | Date | string | null
     owner_id?: StringFilter<"short_urls"> | string
-  }, "uuid" | "slug">
+  }, "slug">
 
   export type short_urlsOrderByWithAggregationInput = {
     uuid?: SortOrder
@@ -2062,10 +2062,10 @@ export namespace Prisma {
     AND?: short_urlsScalarWhereWithAggregatesInput | short_urlsScalarWhereWithAggregatesInput[]
     OR?: short_urlsScalarWhereWithAggregatesInput[]
     NOT?: short_urlsScalarWhereWithAggregatesInput | short_urlsScalarWhereWithAggregatesInput[]
-    uuid?: UuidWithAggregatesFilter<"short_urls"> | string
+    uuid?: StringWithAggregatesFilter<"short_urls"> | string
     name?: StringNullableWithAggregatesFilter<"short_urls"> | string | null
     url?: StringWithAggregatesFilter<"short_urls"> | string
-    slug?: StringWithAggregatesFilter<"short_urls"> | string
+    slug?: UuidWithAggregatesFilter<"short_urls"> | string
     created_at?: DateTimeWithAggregatesFilter<"short_urls"> | Date | string
     modified_at?: DateTimeWithAggregatesFilter<"short_urls"> | Date | string
     removed_at?: DateTimeNullableWithAggregatesFilter<"short_urls"> | Date | string | null
@@ -2076,7 +2076,7 @@ export namespace Prisma {
     uuid?: string
     name?: string | null
     url: string
-    slug: string
+    slug?: string
     created_at?: Date | string
     modified_at?: Date | string
     removed_at?: Date | string | null
@@ -2087,7 +2087,7 @@ export namespace Prisma {
     uuid?: string
     name?: string | null
     url: string
-    slug: string
+    slug?: string
     created_at?: Date | string
     modified_at?: Date | string
     removed_at?: Date | string | null
@@ -2120,7 +2120,7 @@ export namespace Prisma {
     uuid?: string
     name?: string | null
     url: string
-    slug: string
+    slug?: string
     created_at?: Date | string
     modified_at?: Date | string
     removed_at?: Date | string | null
@@ -2149,7 +2149,7 @@ export namespace Prisma {
     owner_id?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UuidFilter<$PrismaModel = never> = {
+  export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2157,8 +2157,11 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedUuidFilter<$PrismaModel> | string
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -2176,7 +2179,7 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type StringFilter<$PrismaModel = never> = {
+  export type UuidFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2184,11 +2187,8 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedStringFilter<$PrismaModel> | string
+    not?: NestedUuidFilter<$PrismaModel> | string
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -2251,7 +2251,7 @@ export namespace Prisma {
     owner_id?: SortOrder
   }
 
-  export type UuidWithAggregatesFilter<$PrismaModel = never> = {
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2259,8 +2259,11 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
@@ -2284,7 +2287,7 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+  export type UuidWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2292,11 +2295,8 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
@@ -2346,7 +2346,7 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
-  export type NestedUuidFilter<$PrismaModel = never> = {
+  export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2354,7 +2354,10 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedUuidFilter<$PrismaModel> | string
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -2371,7 +2374,7 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedStringFilter<$PrismaModel = never> = {
+  export type NestedUuidFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2379,10 +2382,7 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringFilter<$PrismaModel> | string
+    not?: NestedUuidFilter<$PrismaModel> | string
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2407,7 +2407,7 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NestedUuidWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2415,7 +2415,10 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
@@ -2460,7 +2463,7 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedUuidWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -2468,10 +2471,7 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>

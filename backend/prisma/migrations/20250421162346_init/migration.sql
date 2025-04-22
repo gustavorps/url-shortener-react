@@ -20,6 +20,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql VOLATILE;
 
+/*
+This is an extension for PostgreSQL that provides a uri data type. Advantages over using plain text for storing URIs include:
+- URI syntax checking
+- functions for extracting URI components
+- human-friendly sorting
+*/
+--CREATE EXTENSION uri;
+
 -- CreateTable
 CREATE TABLE "short_urls" (
     "uuid" UUID NOT NULL DEFAULT gen_random_uuid() UNIQUE,
