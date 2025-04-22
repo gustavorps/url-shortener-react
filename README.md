@@ -1,5 +1,17 @@
 # Another URL Shortener
 
+![short-urls_list](./docs/img/short-urls_list.png)
+![short-urls_create](./docs/img/short-urls_create.png)
+
+## Features
+
+- Auth0
+- CRUD for Short URL with GRAPHQL
+- CRUD for Short URL with REST
+- Prisma for DB migration
+- Hasura backend for fast prototyping and data modeling
+- 
+
 ## Production
 
 > **WARNING**

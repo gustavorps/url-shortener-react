@@ -1,0 +1,223 @@
+{
+  "resource_version": 48,
+  "metadata": {
+    "version": 3,
+    "sources": [
+      {
+        "name": "postgres",
+        "kind": "postgres",
+        "tables": [
+          {
+            "table": {
+              "name": "short_urls",
+              "schema": "public"
+            },
+            "insert_permissions": [
+              {
+                "role": "public",
+                "permission": {
+                  "check": {},
+                  "columns": [
+                    "name",
+                    "owner_id",
+                    "slug",
+                    "url",
+                    "created_at",
+                    "modified_at",
+                    "removed_at",
+                    "uuid"
+                  ]
+                },
+                "comment": ""
+              }
+            ],
+            "select_permissions": [
+              {
+                "role": "public",
+                "permission": {
+                  "columns": [
+                    "name",
+                    "owner_id",
+                    "slug",
+                    "url",
+                    "created_at",
+                    "modified_at",
+                    "removed_at",
+                    "uuid"
+                  ],
+                  "filter": {},
+                  "allow_aggregations": true
+                },
+                "comment": ""
+              }
+            ],
+            "update_permissions": [
+              {
+                "role": "public",
+                "permission": {
+                  "columns": [
+                    "name",
+                    "owner_id",
+                    "slug",
+                    "url",
+                    "created_at",
+                    "modified_at",
+                    "removed_at",
+                    "uuid"
+                  ],
+                  "filter": {},
+                  "check": {}
+                },
+                "comment": ""
+              }
+            ],
+            "delete_permissions": [
+              {
+                "role": "public",
+                "permission": {
+                  "filter": {}
+                },
+                "comment": ""
+              }
+            ]
+          }
+        ],
+        "configuration": {
+          "connection_info": {
+            "database_url": "postgres://postgres:postgrespassword@postgres-15:5432/postgres",
+            "isolation_level": "read-committed",
+            "use_prepared_statements": false
+          }
+        }
+      }
+    ],
+    "query_collections": [
+      {
+        "name": "allowed-queries",
+        "definition": {
+          "queries": [
+            {
+              "name": "short_urls_by_pk",
+              "query": "query short_urls_by_pk($slug: String!) {\n  short_urls_by_pk(slug: $slug) {\n    created_at\n    modified_at\n    name\n    owner_id\n    removed_at\n    slug\n    url\n    uuid\n  }\n}\n"
+            },
+            {
+              "name": "short_urls",
+              "query": "query short_urls {\n  short_urls {\n    created_at\n    modified_at\n    name\n    owner_id\n    removed_at\n    slug\n    url\n    uuid\n  }\n}\n"
+            },
+            {
+              "name": "insert_short_urls_one",
+              "query": "mutation insert_short_urls_one($object: short_urls_insert_input!) {\n  insert_short_urls_one(object: $object) {\n    created_at\n    modified_at\n    name\n    owner_id\n    removed_at\n    slug\n    url\n    uuid\n  }\n}\n"
+            },
+            {
+              "name": "update_short_urls_by_pk",
+              "query": "mutation update_short_urls_by_pk($slug: String!, $object: short_urls_set_input!) {\n  update_short_urls_by_pk(pk_columns: {slug: $slug}, _set: $object) {\n    created_at\n    modified_at\n    name\n    owner_id\n    removed_at\n    slug\n    url\n    uuid\n  }\n}\n"
+            },
+            {
+              "name": "delete_short_urls_by_pk",
+              "query": "mutation delete_short_urls_by_pk($slug: String!) {\n  delete_short_urls_by_pk(slug: $slug) {\n    created_at\n    modified_at\n    name\n    owner_id\n    removed_at\n    slug\n    url\n    uuid\n  }\n}\n"
+            }
+          ]
+        }
+      }
+    ],
+    "allowlist": [
+      {
+        "collection": "allowed-queries",
+        "scope": {
+          "global": true
+        }
+      }
+    ],
+    "rest_endpoints": [
+      {
+        "comment": "",
+        "definition": {
+          "query": {
+            "collection_name": "allowed-queries",
+            "query_name": "short_urls"
+          }
+        },
+        "methods": [
+          "GET"
+        ],
+        "name": "short_urls",
+        "url": "short_urls"
+      },
+      {
+        "comment": "",
+        "definition": {
+          "query": {
+            "collection_name": "allowed-queries",
+            "query_name": "insert_short_urls_one"
+          }
+        },
+        "methods": [
+          "POST"
+        ],
+        "name": "insert_short_urls_one",
+        "url": "short_urls"
+      },
+      {
+        "comment": "",
+        "definition": {
+          "query": {
+            "collection_name": "allowed-queries",
+            "query_name": "short_urls_by_pk"
+          }
+        },
+        "methods": [
+          "GET"
+        ],
+        "name": "short_urls_by_pk",
+        "url": "short_urls/:slug"
+      },
+      {
+        "comment": "",
+        "definition": {
+          "query": {
+            "collection_name": "allowed-queries",
+            "query_name": "update_short_urls_by_pk"
+          }
+        },
+        "methods": [
+          "POST"
+        ],
+        "name": "update_short_urls_by_pk",
+        "url": "short_urls/:slug"
+      },
+      {
+        "comment": "",
+        "definition": {
+          "query": {
+            "collection_name": "allowed-queries",
+            "query_name": "delete_short_urls_by_pk"
+          }
+        },
+        "methods": [
+          "DELETE"
+        ],
+        "name": "delete_short_urls_by_pk",
+        "url": "short_urls/:slug"
+      }
+    ],
+    "backend_configs": {
+      "dataconnector": {
+        "athena": {
+          "uri": "http://hasura-graphql-data-connector-v2:8081/api/v1/athena"
+        },
+        "mariadb": {
+          "uri": "http://data-connector-agent:8081/api/v1/mariadb"
+        },
+        "mysql8": {
+          "uri": "http://data-connector-agent:8081/api/v1/mysql"
+        },
+        "oracle": {
+          "uri": "http://data-connector-agent:8081/api/v1/oracle"
+        },
+        "snowflake": {
+          "uri": "http://data-connector-agent:8081/api/v1/snowflake"
+        }
+      }
+    }
+  }
+}
